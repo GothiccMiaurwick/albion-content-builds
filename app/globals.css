@@ -1,26 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #020408;
+  --foreground: #e2e8f0;
+  --gold: #c5a059;
+  --gold-glow: rgba(197, 160, 89, 0.2);
+  --pink-accent: #f472b6;
+  --card-bg: rgba(13, 17, 23, 0.4);
+  --card-border: rgba(197, 160, 89, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-gold: var(--gold);
+  --color-pink-accent: var(--pink-accent);
+  --font-cinzel: "Cinzel", serif;
+  --font-inter: "Inter", sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-star-twinkle: twinkle 4s ease-in-out infinite;
+
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+
+  /* Aggressive selection prevention */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /* Disable mobile tap highlight */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure nothing is selectable even with double click */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Final nail in the coffin for the blue highlight */
+::selection {
+  background: transparent;
+  color: inherit;
+}
+::-moz-selection {
+  background: transparent;
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-cinzel);
+}
+
+.celestial-bg {
+  background: radial-gradient(circle at 50% -20%, #1e293b 0%, #020408 60%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.gold-text {
+  color: var(--gold);
+  text-shadow: 0 0 20px var(--gold-glow);
+  letter-spacing: 0.05em;
+}
+
+.gold-border {
+  border-color: var(--gold);
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Atmospheric Orbs */
+.aura-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
 }

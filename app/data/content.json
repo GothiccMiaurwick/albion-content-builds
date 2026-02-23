@@ -1,0 +1,153 @@
+{
+  "categories": [
+    {
+      "id": "static",
+      "label": "Static Dungeons"
+    },
+    {
+      "id": "group",
+      "label": "Group Dungeons"
+    },
+    {
+      "id": "ganking",
+      "label": "Ganking"
+    }
+  ],
+  "roles": {
+    "Tank": {
+      "icon": "Shield",
+      "color": "blue",
+      "description": "El pilar central del grupo, encargado de mantener el aggro y mitigar el daño.",
+      "builds": {
+        "static": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG@4",
+              "name": "Bolsa del anciano",
+              "quality": 4
+            },
+            "head": {
+              "id": "T7_HEAD_PLATE_SET1",
+              "name": "Casco de soldado del gran maestro",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T4_CAPEITEM_SMUGGLER@2",
+              "name": "Capa de Contrabandista del Iniciado",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T4_MAIN_MACE_HELL@4",
+              "name": "Maza íncubo del iniciado",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T7_ARMOR_PLATE_SET3",
+              "name": "Armadura de guardián del gran maestro",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T7_OFF_SHIELD_AVALON",
+              "name": "Aegis Astral del gran maestro",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T7_SHOES_LEATHER_SET2",
+              "name": "Zapatos de cazador del gran maestro",
+              "quality": 4
+            },
+            "food": {
+              "id": "T8_MEAL_SANDWICH",
+              "name": "Bocadillo de ternera",
+              "quality": 1
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano",
+              "quality": 5
+            }
+          },
+          "partyRole": "Posicionar a los mobs y proteger a los Healers de interrupciones.",
+          "commonErrors": [
+            "No esperar a que el Healer esté listo",
+            "Moverse fuera del rango de curación"
+          ],
+          "timing": "Usa la W para agrupar mobs al inicio del pull.",
+          "budget": "Tier 4.3 para un balance óptimo entre precio y defensa."
+        }
+      }
+    },
+    "HEALER": {
+      "icon": "Heart",
+      "color": "emerald",
+      "description": "Cura mucho , juega poco",
+      "builds": {
+        "static": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG@4",
+              "name": "Bolsa del anciano",
+              "quality": 4
+            },
+            "head": {
+              "id": "T7_HEAD_PLATE_UNDEAD",
+              "name": "Casco de guardatumbas del gran maestro",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T4_CAPEITEM_SMUGGLER@2",
+              "name": "Capa de Contrabandista del Iniciado",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T7_MAIN_HOLYSTAFF_MORGANA",
+              "name": "Bastón de toque de vida del gran maestro",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T7_ARMOR_CLOTH_ROYAL",
+              "name": "Túnica real del gran maestro",
+              "quality": 1
+            },
+            "offhand": {
+              "id": "T7_OFF_CENSER_AVALON",
+              "name": "Incensario celestial del gran maestro",
+              "quality": 1
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T7_SHOES_LEATHER_SET1",
+              "name": "Zapatos de mercenario del gran maestro",
+              "quality": 4
+            },
+            "food": {
+              "id": "T7_MEAL_OMELETTE",
+              "name": "Tortilla de cerdo",
+              "quality": 4
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano",
+              "quality": 5
+            }
+          },
+          "partyRole": "Curar al tanque y alzar la party",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "Tirar casco y E en compresor",
+          "budget": "Ropa t7 o equivalente, arma t8"
+        }
+      }
+    }
+  }
+}
