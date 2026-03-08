@@ -5,7 +5,7 @@
 export function getAlbionImageUrl(
   itemId: string,
   size: number = 128,
-  quality: number = 0,
+  quality: number = 1, // Default to Normal quality (1) for fastest fetching. Albion uses 1-5.
 ): string {
   if (!itemId) return "";
 
@@ -28,9 +28,8 @@ export function getAlbionImageUrl(
     `https://render.albiononline.com/v1/item/${processedId}.png`,
   );
   url.searchParams.set("size", size.toString());
-  if (quality > 0) {
-    url.searchParams.set("quality", quality.toString());
-  }
+  // Always set quality to optimize
+  url.searchParams.set("quality", quality.toString());
 
   return url.toString();
 }

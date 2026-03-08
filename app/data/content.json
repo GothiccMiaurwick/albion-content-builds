@@ -27,28 +27,28 @@
               "quality": 4
             },
             "head": {
-              "id": "T7_HEAD_PLATE_SET1",
-              "name": "Casco de soldado del gran maestro",
+              "id": "T8_HEAD_PLATE_SET1",
+              "name": "Casco de soldado del anciano",
               "quality": 4
             },
             "cape": {
-              "id": "T4_CAPEITEM_SMUGGLER@2",
-              "name": "Capa de Contrabandista del Iniciado",
+              "id": "T8_CAPEITEM_SMUGGLER",
+              "name": "Capa de Contrabandista del Anciano",
               "quality": 4
             },
             "weapon": {
-              "id": "T4_MAIN_MACE_HELL@4",
-              "name": "Maza íncubo del iniciado",
+              "id": "T8_MAIN_MACE_HELL@4",
+              "name": "Maza íncubo del anciano",
               "quality": 4
             },
             "armor": {
-              "id": "T7_ARMOR_PLATE_SET3",
-              "name": "Armadura de guardián del gran maestro",
+              "id": "T8_ARMOR_PLATE_SET3",
+              "name": "Armadura de guardián del anciano",
               "quality": 4
             },
             "offhand": {
-              "id": "T7_OFF_SHIELD_AVALON",
-              "name": "Aegis Astral del gran maestro",
+              "id": "T8_OFF_SHIELD_AVALON",
+              "name": "Aegis Astral del anciano",
               "quality": 4
             },
             "potion": {
@@ -57,8 +57,8 @@
               "quality": 4
             },
             "shoes": {
-              "id": "T7_SHOES_LEATHER_SET2",
-              "name": "Zapatos de cazador del gran maestro",
+              "id": "T8_SHOES_LEATHER_SET2",
+              "name": "Zapatos de cazador del anciano",
               "quality": 4
             },
             "food": {
@@ -78,7 +78,7 @@
             "Moverse fuera del rango de curación"
           ],
           "timing": "Usa la W para agrupar mobs al inicio del pull.",
-          "budget": "Tier 4.3 para un balance óptimo entre precio y defensa."
+          "budget": "Tier 7 para un balance óptimo entre precio y defensa."
         }
       }
     },
@@ -95,29 +95,29 @@
               "quality": 4
             },
             "head": {
-              "id": "T7_HEAD_PLATE_UNDEAD",
-              "name": "Casco de guardatumbas del gran maestro",
+              "id": "T8_HEAD_PLATE_UNDEAD",
+              "name": "Casco de guardatumbas del anciano",
               "quality": 4
             },
             "cape": {
-              "id": "T4_CAPEITEM_SMUGGLER@2",
-              "name": "Capa de Contrabandista del Iniciado",
+              "id": "T8_CAPEITEM_SMUGGLER",
+              "name": "Capa de Contrabandista del Anciano",
               "quality": 4
             },
             "weapon": {
-              "id": "T7_MAIN_HOLYSTAFF_MORGANA",
-              "name": "Bastón de toque de vida del gran maestro",
+              "id": "T8_MAIN_HOLYSTAFF",
+              "name": "Bastón sagrado del anciano",
               "quality": 4
             },
             "armor": {
-              "id": "T7_ARMOR_CLOTH_ROYAL",
-              "name": "Túnica real del gran maestro",
-              "quality": 1
+              "id": "T8_ARMOR_PLATE_KEEPER",
+              "name": "Armadura de juez del anciano",
+              "quality": 4
             },
             "offhand": {
-              "id": "T7_OFF_CENSER_AVALON",
-              "name": "Incensario celestial del gran maestro",
-              "quality": 1
+              "id": "T8_OFF_CENSER_AVALON",
+              "name": "Incensario celestial del anciano",
+              "quality": 4
             },
             "potion": {
               "id": "T3_POTION_MOB_RESET@2",
@@ -125,8 +125,142 @@
               "quality": 4
             },
             "shoes": {
-              "id": "T7_SHOES_LEATHER_SET1",
-              "name": "Zapatos de mercenario del gran maestro",
+              "id": "T8_SHOES_LEATHER_SET1",
+              "name": "Zapatos de mercenario del anciano",
+              "quality": 4
+            },
+            "food": {
+              "id": "T7_MEAL_OMELETTE",
+              "name": "Tortilla de cerdo",
+              "quality": 1
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano",
+              "quality": 4
+            }
+          },
+          "partyRole": "Curar al tanque y alzar la party",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "Tirar casco y E en compresor, estate pendiente ",
+          "budget": "Ropa t7 o equivalente, Arma t7, puedes llevar cualquier montura"
+        }
+      }
+    },
+    "FLAMIGERO": {
+      "icon": "Flame",
+      "color": "rose",
+      "description": "Mucho daño, pocas manos.",
+      "builds": {
+        "static": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG@4",
+              "name": "Bolsa del anciano",
+              "quality": 4
+            },
+            "head": {
+              "id": "T8_HEAD_LEATHER_SET3",
+              "name": "Capucha de asesino del anciano",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T8_CAPEITEM_SMUGGLER",
+              "name": "Capa de Contrabandista del Anciano",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T8_2H_INFERNOSTAFF_MORGANA",
+              "name": "Bastón flamígero del anciano",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T8_ARMOR_CLOTH_KEEPER",
+              "name": "Túnica de druida del anciano",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T8_2H_INFERNOSTAFF_MORGANA",
+              "name": "Bastón flamígero del anciano",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T8_SHOES_CLOTH_ROYAL",
+              "name": "Sandalias reales del anciano",
+              "quality": 4
+            },
+            "food": {
+              "id": "T8_MEAL_STEW",
+              "name": "Guiso de ternera",
+              "quality": 4
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano",
+              "quality": 4
+            }
+          },
+          "partyRole": "Tu mete daño que yo respondo ",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "Define el timing de habilidades",
+          "budget": "Ropa T7 equivalente pe y montura y  bolsa que quieras "
+        }
+      }
+    },
+    "INVOCADOR OSCURO(CHAdO CALER)": {
+      "icon": "Sparkles",
+      "color": "purple",
+      "description": "tU noma mete la E",
+      "builds": {
+        "static": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG",
+              "name": "Bolsa del anciano",
+              "quality": 4
+            },
+            "head": {
+              "id": "T8_HEAD_LEATHER_MORGANA",
+              "name": "Capucha de acechador del anciano",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T8_CAPEITEM_SMUGGLER",
+              "name": "Capa de Contrabandista del Anciano",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T8_MAIN_CURSEDSTAFF_AVALON",
+              "name": "Invocador oscuro del anciano",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T8_ARMOR_LEATHER_ROYAL",
+              "name": "Chaqueta real del anciano",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T8_OFF_DEMONSKULL_HELL",
+              "name": "Muisak del anciano",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T8_SHOES_CLOTH_MORGANA",
+              "name": "Sandalias de sectario del anciano",
               "quality": 4
             },
             "food": {
@@ -137,15 +271,216 @@
             "mount": {
               "id": "T8_MOUNT_ARMORED_HORSE",
               "name": "Caballo blindado del anciano",
-              "quality": 5
+              "quality": 4
             }
           },
-          "partyRole": "Curar al tanque y alzar la party",
+          "partyRole": "Meter la E en compresor",
           "commonErrors": [
             "Error 1"
           ],
-          "timing": "Tirar casco y E en compresor",
-          "budget": "Ropa t7 o equivalente, arma t8"
+          "timing": "Tu E la tiras cuando el tanque diga 2 en su compresor ",
+          "budget": "Ropa T7 (cabalho y borsa que queras we )"
+        }
+      }
+    },
+    "BADON": {
+      "icon": "Target",
+      "color": "cyan",
+      "description": "Nueva clase añadida. Edítame para configurar los detalles.",
+      "builds": {
+        "static": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG@4",
+              "name": "Bolsa del anciano",
+              "quality": 4
+            },
+            "head": {
+              "id": "T8_HEAD_LEATHER_SET3",
+              "name": "Capucha de asesino del anciano",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T8_CAPEITEM_SMUGGLER",
+              "name": "Capa de Contrabandista del Anciano",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T8_2H_BOW_KEEPER",
+              "name": "Arco de Badon del anciano",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T8_ARMOR_LEATHER_ROYAL",
+              "name": "Chaqueta real del anciano",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T8_2H_BOW_KEEPER",
+              "name": "Arco de Badon del anciano",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T8_SHOES_CLOTH_ROYAL",
+              "name": "Sandalias reales del anciano",
+              "quality": 4
+            },
+            "food": {
+              "id": "T8_MEAL_STEW",
+              "name": "Guiso de ternera",
+              "quality": 4
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano",
+              "quality": 4
+            }
+          },
+          "partyRole": "Define el rol en la party",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "Define el timing de habilidades",
+          "budget": "Define opción económica"
+        }
+      }
+    },
+    "PRISMA": {
+      "icon": "Zap",
+      "color": "cyan",
+      "description": "Dps constante",
+      "builds": {
+        "static": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG@4",
+              "name": "Bolsa del anciano T.8.4",
+              "quality": 4
+            },
+            "head": {
+              "id": "T8_HEAD_CLOTH_KEEPER",
+              "name": "Hábito de druida del anciano T.8",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T8_CAPEITEM_SMUGGLER",
+              "name": "Capa de Contrabandista del Anciano T.8",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T8_2H_ICECRYSTAL_UNDEAD",
+              "name": "Prisma de hielos perpetuos del anciano T.8",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T8_ARMOR_CLOTH_SET1",
+              "name": "Túnica de erudito del anciano T.8",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T8_2H_ICECRYSTAL_UNDEAD",
+              "name": "Prisma de hielos perpetuos del anciano T.8",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor T.3.2",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T8_SHOES_CLOTH_ROYAL",
+              "name": "Sandalias reales del anciano T.8",
+              "quality": 4
+            },
+            "food": {
+              "id": "T8_MEAL_STEW",
+              "name": "Guiso de ternera T.8",
+              "quality": 4
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano T.8",
+              "quality": 5
+            }
+          },
+          "partyRole": "mana y tirar la e bro",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "Tira la e cuando el compresor atraiga y  spamea habilidades ",
+          "budget": "Ropa T7, Arma T7 equivalente, montura que quieras"
+        }
+      }
+    },
+    "STOPER": {
+      "icon": "Hammer",
+      "color": "purple",
+      "description": "Protege la party",
+      "builds": {
+        "static": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG@4",
+              "name": "Bolsa del anciano T.8.4",
+              "quality": 4
+            },
+            "head": {
+              "id": "T8_HEAD_PLATE_KEEPER",
+              "name": "Casco de juez del anciano T.8",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T8_CAPEITEM_SMUGGLER",
+              "name": "Capa de Contrabandista del Anciano T.8",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T8_2H_MACE",
+              "name": "Maza pesada del Anciano T.8",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T8_ARMOR_PLATE_SET2",
+              "name": "Armadura de caballero del anciano T.8",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T8_2H_MACE",
+              "name": "Maza pesada del Anciano T.8",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor T.3.2",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T8_SHOES_LEATHER_SET2",
+              "name": "Zapatos de cazador del anciano T.8",
+              "quality": 4
+            },
+            "food": {
+              "id": "T8_FISH_FRESHWATER_ALL_COMMON",
+              "name": "Esturión de río T.8",
+              "quality": 4
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano T.8",
+              "quality": 5
+            }
+          },
+          "partyRole": "Defiende por si nos llegan y suicídate con ellos si es necesario",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "Cuando ellos lleguen ve hacia con todo hacia ellos",
+          "budget": "T6 o T7 en todo bro, cualquier montura"
         }
       }
     }

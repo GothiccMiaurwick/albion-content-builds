@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import NextImage from "next/image";
 import { X, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getAlbionImageUrl, parseAlbionTier } from "../utils/albion";
@@ -20,6 +21,7 @@ export default function ItemSelectorModal({
   const [search, setSearch] = useState("");
   const [results, setResults] = useState<AlbionItem[]>([]);
   const [loading, setLoading] = useState(false);
+  const [cache, setCache] = useState<Record<string, AlbionItem[]>>({});
 
   useEffect(() => {
     const timer = setTimeout(async () => {
@@ -28,17 +30,28 @@ export default function ItemSelectorModal({
         return;
       }
 
+      const query = search.toLowerCase().trim();
+      if (cache[query]) {
+        setResults(cache[query]);
+        return;
+      }
+
       setLoading(true);
       try {
         const res = await fetch(
-          `/api/albion/search?q=${encodeURIComponent(search)}`,
+          `/api/albion/search?q=${encodeURIComponent(query)}`,
         );
         const data = await res.json();
-        // Map API response to AlbionItem, favoring Spanish
-        const mappedData: AlbionItem[] = data.map((item: any) => ({
-          id: item.id,
-          name: item.name_es || item.name_en,
-        }));
+        // Map API response to AlbionItem, favoring Spanish and appending Tier
+        const mappedData: AlbionItem[] = data.map((item: any) => {
+          const tier = parseAlbionTier(item.id);
+          const name = item.name_es || item.name_en;
+          return {
+            id: item.id,
+            name: tier ? `${name} ${tier.replace("T", "T.")}` : name,
+          };
+        });
+        setCache((prev) => ({ ...prev, [query]: mappedData }));
         setResults(mappedData);
       } catch (error) {
         console.error("Search error:", error);
@@ -48,7 +61,7 @@ export default function ItemSelectorModal({
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [search]);
+  }, [search, cache]);
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4">
@@ -93,28 +106,25 @@ export default function ItemSelectorModal({
                 key={item.id}
                 onClick={() => onSelect(item)}
                 className="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-slate-800 transition-all text-left group">
-                <div className="w-12 h-12 rounded bg-slate-950/50 flex items-center justify-center border border-slate-800 group-hover:border-emerald-500/30">
-                  <motion.img
-                    whileHover={{ scale: 1.7, zIndex: 10 }}
+                <div className="w-16 h-16 rounded-xl bg-slate-950/50 flex items-center justify-center border border-slate-800 group-hover:border-emerald-500/30 transition-colors">
+                  <motion.div
+                    whileHover={{ scale: 1.5, zIndex: 10 }}
                     transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                    src={getAlbionImageUrl(item.id, 64)}
-                    alt={item.name}
-                    className="w-10 h-10 object-contain cursor-zoom-in relative"
-                  />
+                    className="relative w-14 h-14 flex items-center justify-center cursor-zoom-in">
+                    <NextImage
+                      src={getAlbionImageUrl(item.id, 64, 1)}
+                      alt={item.name}
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-contain"
+                    />
+                  </motion.div>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    {parseAlbionTier(item.id) && (
-                      <span className="bg-slate-700 text-slate-300 text-[10px] font-bold px-1.5 py-0.5 rounded">
-                        {parseAlbionTier(item.id)}
-                      </span>
-                    )}
-                    <div className="text-white text-sm font-medium truncate">
+                    <div className="text-white text-base font-semibold truncate">
                       {item.name}
                     </div>
-                  </div>
-                  <div className="text-slate-500 text-[10px] font-mono truncate">
-                    {item.id}
                   </div>
                 </div>
               </button>

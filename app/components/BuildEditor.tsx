@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import NextImage from "next/image";
 import * as Icons from "lucide-react";
 import {
   X,
@@ -208,9 +209,11 @@ export default function BuildEditor({
   const EquipmentSlot = ({
     slot,
     label,
+    priority = false,
   }: {
     slot: keyof Equipment;
     label: string;
+    priority?: boolean;
   }) => {
     const item = build.equipment[slot];
 
@@ -236,23 +239,18 @@ export default function BuildEditor({
           className="relative group aspect-square rounded-xl bg-slate-950/50 border border-slate-800/80 hover:border-emerald-500/50 flex flex-col items-center justify-center text-center transition-all p-2">
           {item ? (
             <>
-              <motion.img
+              <motion.div
                 whileHover={{ scale: 1.6, zIndex: 50 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                src={getAlbionImageUrl(item.id, 128, item.quality)}
-                alt={item.name}
-                className="w-full h-full object-contain mb-1 cursor-zoom-in relative"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-black/60 backdrop-blur-sm py-1">
-                <span className="text-[9px] text-white line-clamp-1 px-1">
-                  {item.name}
-                </span>
-              </div>
-              {parseAlbionTier(item.id) && (
-                <div className="absolute top-2 left-2 bg-slate-900/90 text-slate-300 text-[9px] font-bold px-1.5 py-0.5 rounded border border-slate-700 z-10">
-                  {parseAlbionTier(item.id)}
-                </div>
-              )}
+                className="relative w-full h-full flex items-center justify-center cursor-zoom-in mb-1">
+                <NextImage
+                  src={getAlbionImageUrl(item.id, 128, item.quality)}
+                  alt={item.name}
+                  width={128}
+                  height={128}
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
               {item.quality && item.quality > 1 && (
                 <div
                   className={`absolute top-2 right-2 w-2.5 h-2.5 rounded-full ${getQualityColor(item.quality)} border border-white/20`}
@@ -410,12 +408,12 @@ export default function BuildEditor({
               {/* Main Grid 3x3 */}
               <div className="grid grid-cols-3 gap-3 w-full max-w-sm">
                 <EquipmentSlot slot="bag" label="Bag" />
-                <EquipmentSlot slot="head" label="Head" />
-                <EquipmentSlot slot="cape" label="Cape" />
+                <EquipmentSlot slot="head" label="Head" priority={true} />
+                <EquipmentSlot slot="cape" label="Cape" priority={true} />
 
-                <EquipmentSlot slot="weapon" label="Weapon" />
-                <EquipmentSlot slot="armor" label="Armor" />
-                <EquipmentSlot slot="offhand" label="Offhand" />
+                <EquipmentSlot slot="weapon" label="Weapon" priority={true} />
+                <EquipmentSlot slot="armor" label="Armor" priority={true} />
+                <EquipmentSlot slot="offhand" label="Offhand" priority={true} />
 
                 <EquipmentSlot slot="potion" label="Potion" />
                 <EquipmentSlot slot="shoes" label="Shoes" />

@@ -1,5 +1,6 @@
 "use client";
 
+import NextImage from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Brain, Clock, Coins, Info } from "lucide-react";
 import { AlbionItem, BuildDetail, Equipment } from "../types/content";
@@ -47,7 +48,15 @@ export default function BuildCard({
 }: BuildCardProps) {
   const currentStyles = colorMap[roleColor] || colorMap.blue;
 
-  const Slot = ({ slot, label }: { slot: keyof Equipment; label: string }) => {
+  const Slot = ({
+    slot,
+    label,
+    priority = false,
+  }: {
+    slot: keyof Equipment;
+    label: string;
+    priority?: boolean;
+  }) => {
     const item = buildData.equipment[slot];
     return (
       <div className="relative aspect-square rounded-xl bg-slate-900 border border-slate-800/50 flex flex-col items-center justify-center group shadow-inner">
@@ -55,30 +64,26 @@ export default function BuildCard({
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="w-full h-full flex flex-col items-center justify-center p-1">
-            <motion.img
+            className="w-full h-full flex flex-col items-center justify-center p-1 relative">
+            <motion.div
               whileHover={{ scale: 1.6, zIndex: 50 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              src={getAlbionImageUrl(item.id, 128, item.quality)}
-              alt={item.name}
-              className="w-full h-full object-contain drop-shadow-2xl translate-y-[-2px] cursor-zoom-in relative"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-slate-950/80 backdrop-blur-[2px] py-0.5 border-t border-slate-800 z-10">
-              <span className="text-[8px] text-white/70 line-clamp-1 px-1 font-medium">
-                {item.name}
-              </span>
-            </div>
-            {parseAlbionTier(item.id) && (
-              <div className="absolute top-1 left-1 bg-slate-900/90 text-slate-300 text-[8px] font-bold px-1 rounded-sm border border-slate-700 z-20">
-                {parseAlbionTier(item.id)}
-              </div>
-            )}
-            {item.quality && item.quality > 1 && (
-              <div
-                className={`absolute top-1 right-1 w-1.5 h-1.5 rounded-full ${getQualityColor(item.quality)} border border-white/20 z-20`}
-                title={`Calidad: ${item.quality}`}
+              className="relative w-full h-full flex items-center justify-center cursor-zoom-in">
+              <NextImage
+                src={getAlbionImageUrl(item.id, 128, item.quality)}
+                alt={item.name}
+                width={128}
+                height={128}
+                priority={priority}
+                className="w-full h-full object-contain"
               />
-            )}
+              {item.quality && item.quality > 1 && (
+                <div
+                  className={`absolute top-1 right-1 w-1.5 h-1.5 rounded-full ${getQualityColor(item.quality)} border border-white/20 z-20`}
+                  title={`Calidad: ${item.quality}`}
+                />
+              )}
+            </motion.div>
           </motion.div>
         ) : (
           <span className="text-[9px] font-bold text-slate-700 uppercase tracking-tighter opacity-40">
@@ -112,12 +117,12 @@ export default function BuildCard({
               {/* 3x3 Grid */}
               <div className="grid grid-cols-3 gap-3 md:gap-5 w-full max-w-[320px]">
                 <Slot slot="bag" label="Bag" />
-                <Slot slot="head" label="Head" />
-                <Slot slot="cape" label="Cape" />
+                <Slot slot="head" label="Head" priority={true} />
+                <Slot slot="cape" label="Cape" priority={true} />
 
-                <Slot slot="weapon" label="Weapon" />
-                <Slot slot="armor" label="Armor" />
-                <Slot slot="offhand" label="Offhand" />
+                <Slot slot="weapon" label="Weapon" priority={true} />
+                <Slot slot="armor" label="Armor" priority={true} />
+                <Slot slot="offhand" label="Offhand" priority={true} />
 
                 <Slot slot="potion" label="Potion" />
                 <Slot slot="shoes" label="Shoes" />
