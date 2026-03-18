@@ -74,10 +74,48 @@ export async function GET(request: Request) {
             itemNameEs.includes(term) ||
             itemId.toLowerCase().includes(term),
         );
-      })
-      .slice(0, 48); // Increased limit for better variety with fuzzy results
+      });
 
-    return NextResponse.json(filtered);
+    // Sort by relevance to bring the most likely items to the top
+    filtered.sort((a: any, b: any) => {
+      const getScore = (item: any) => {
+        let score = 0;
+        const id = item.id.toLowerCase();
+        
+        // Prioritize actual equipment items (armors, weapons, cape, bag)
+        if (
+          id.includes("_armor") || id.includes("_head") || id.includes("_shoes") ||
+          id.includes("_main_") || id.includes("_2h_") || id.includes("_off_") || 
+          id.includes("_cape") || id.includes("_bag") || id.includes("_potion") || id.includes("_meal")
+        ) {
+          score += 50;
+        }
+
+        const en = normalize(item.name_en || "");
+        const es = normalize(item.name_es || "");
+
+        // Prioritize exact word starts
+        if (es.startsWith(normalizedQuery) || en.startsWith(normalizedQuery)) {
+          score += 20;
+        }
+
+        // Penalty for mounts and non-equipables if queried vaguely
+        if (id.includes("_mount_")) {
+          score -= 10;
+        }
+
+        return score;
+      };
+
+      // Secondary sort alphabetically if scores are equal
+      const scoreDiff = getScore(b) - getScore(a);
+      if (scoreDiff !== 0) return scoreDiff;
+      return (a.name_es || a.name_en || a.id).localeCompare(b.name_es || b.name_en || b.id);
+    });
+
+    const paginated = filtered.slice(0, 100); // 100 limit to show all reasonable variations
+
+    return NextResponse.json(paginated);
   } catch (error) {
     console.error("Error searching items:", error);
     return NextResponse.json(

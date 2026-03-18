@@ -14,7 +14,7 @@
     }
   ],
   "roles": {
-    "Tank": {
+    "ef964225-bc40-43aa-8f84-5fb34a14afb5": {
       "icon": "Shield",
       "color": "blue",
       "description": "El pilar central del grupo, encargado de mantener el aggro y mitigar el daño.",
@@ -80,9 +80,10 @@
           "timing": "Usa la W para agrupar mobs al inicio del pull.",
           "budget": "Tier 7 para un balance óptimo entre precio y defensa."
         }
-      }
+      },
+      "name": "Tank"
     },
-    "HEALER": {
+    "932f93e9-2b9e-46c3-bb96-fbb2d3ff3f4a": {
       "icon": "Heart",
       "color": "emerald",
       "description": "Cura mucho , juega poco",
@@ -147,9 +148,10 @@
           "timing": "Tirar casco y E en compresor, estate pendiente ",
           "budget": "Ropa t7 o equivalente, Arma t7, puedes llevar cualquier montura"
         }
-      }
+      },
+      "name": "HEALER"
     },
-    "FLAMIGERO": {
+    "7be93078-0c82-4bbf-81fb-461ed1101df4": {
       "icon": "Flame",
       "color": "rose",
       "description": "Mucho daño, pocas manos.",
@@ -214,9 +216,10 @@
           "timing": "Define el timing de habilidades",
           "budget": "Ropa T7 equivalente pe y montura y  bolsa que quieras "
         }
-      }
+      },
+      "name": "FLAMIGERO"
     },
-    "INVOCADOR OSCURO(CHAdO CALER)": {
+    "71679ad7-69e7-432e-b4a3-1b5de13bb7e2": {
       "icon": "Sparkles",
       "color": "purple",
       "description": "tU noma mete la E",
@@ -281,9 +284,10 @@
           "timing": "Tu E la tiras cuando el tanque diga 2 en su compresor ",
           "budget": "Ropa T7 (cabalho y borsa que queras we )"
         }
-      }
+      },
+      "name": "INVOCADOR OSCURO(CHAdO CALER)"
     },
-    "BADON": {
+    "d03327b7-6d33-4c62-990d-a43ea9dd6c7a": {
       "icon": "Target",
       "color": "cyan",
       "description": "Nueva clase añadida. Edítame para configurar los detalles.",
@@ -348,9 +352,10 @@
           "timing": "Define el timing de habilidades",
           "budget": "Define opción económica"
         }
-      }
+      },
+      "name": "BADON"
     },
-    "PRISMA": {
+    "4f46b26a-7529-402d-b508-33fa707d5b95": {
       "icon": "Zap",
       "color": "cyan",
       "description": "Dps constante",
@@ -415,9 +420,10 @@
           "timing": "Tira la e cuando el compresor atraiga y  spamea habilidades ",
           "budget": "Ropa T7, Arma T7 equivalente, montura que quieras"
         }
-      }
+      },
+      "name": "PRISMA"
     },
-    "STOPER": {
+    "ec8d652d-61e1-4c43-a966-05cae22f3ecb": {
       "icon": "Hammer",
       "color": "purple",
       "description": "Protege la party",
@@ -482,7 +488,416 @@
           "timing": "Cuando ellos lleguen ve hacia con todo hacia ellos",
           "budget": "T6 o T7 en todo bro, cualquier montura"
         }
+      },
+      "name": "STOPER"
+    },
+    "b8f7d5df-c360-4e78-b7be-ffdf18d5805a": {
+      "icon": "Shield",
+      "color": "blue",
+      "description": "El que mas paga en la repacion xddd",
+      "builds": {
+        "group": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG@4",
+              "name": "Bolsa del anciano T.8.4",
+              "quality": 4
+            },
+            "head": {
+              "id": "T8_HEAD_PLATE_SET1@1",
+              "name": "Casco de soldado del anciano T.8.1",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T8_CAPEITEM_FW_BRIDGEWATCH@1",
+              "name": "Capa de Bridgewatch del anciano T.8.1",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T8_MAIN_MACE_HELL@1",
+              "name": "Maza íncubo del anciano T.8.1",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T8_ARMOR_PLATE_SET3@1",
+              "name": "Armadura de guardián del anciano T.8.1",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T8_OFF_SHIELD_HELL@1",
+              "name": "Escudo de villano del anciano T.8.1",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor T.3.2",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T8_SHOES_LEATHER_SET2@1",
+              "name": "Zapatos de cazador del anciano T.8.1",
+              "quality": 4
+            },
+            "food": {
+              "id": "T8_MEAL_SANDWICH",
+              "name": "Bocadillo de ternera T.8",
+              "quality": 4
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano T.8",
+              "quality": 5
+            }
+          },
+          "partyRole": "Haces la pool lo m as grande posible",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "Botas compresor casco",
+          "budget": "no hay economico "
+        }
+      },
+      "name": "TANQUE"
+    },
+    "87348631-ef61-4251-b6d4-184474fc75d1": {
+      "icon": "Flame",
+      "color": "rose",
+      "description": "Mete daño repara menos",
+      "builds": {
+        "group": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG@4",
+              "name": "Bolsa del anciano T.8.4",
+              "quality": 4
+            },
+            "head": {
+              "id": "T8_HEAD_PLATE_ROYAL@1",
+              "name": "Casco real del anciano T.8.1",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T8_CAPEITEM_DEMON@1",
+              "name": "Capa demoníaca del anciano T.8.1",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T8_2H_INFERNOSTAFF_MORGANA@1",
+              "name": "Bastón flamígero del anciano T.8.1",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T8_ARMOR_CLOTH_KEEPER@1",
+              "name": "Túnica de druida del anciano T.8.1",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T8_2H_INFERNOSTAFF_MORGANA@1",
+              "name": "Bastón flamígero del anciano T.8.1",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor T.3.2",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T8_SHOES_CLOTH_ROYAL@1",
+              "name": "Sandalias reales del anciano T.8.1",
+              "quality": 4
+            },
+            "food": {
+              "id": "T8_MEAL_STEW",
+              "name": "Guiso de ternera T.8",
+              "quality": 4
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano T.8",
+              "quality": 5
+            }
+          },
+          "partyRole": "Daño masivo",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "Tienes que cargar tu tunica, casco y sandalias antes de el compresor estar en la tunica real y tirar e  sobre el tanquede",
+          "budget": "No hay"
+        }
+      },
+      "name": "FLAMIGERO"
+    },
+    "85c1b278-de5c-4762-a9c3-a3446279ba49": {
+      "icon": "Sparkles",
+      "color": "purple",
+      "description": "tU noma mete la E",
+      "builds": {
+        "group": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG",
+              "name": "Bolsa del anciano",
+              "quality": 4
+            },
+            "head": {
+              "id": "T8_HEAD_LEATHER_MORGANA",
+              "name": "Capucha de acechador del anciano",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T8_CAPEITEM_DEMON@1",
+              "name": "Capa demoníaca del anciano T.8.1",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T8_MAIN_CURSEDSTAFF_AVALON",
+              "name": "Invocador oscuro del anciano",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T8_ARMOR_LEATHER_UNDEAD@1",
+              "name": "Chaqueta de espectro del anciano T.8.1",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T8_OFF_LAMP_UNDEAD@1",
+              "name": "Vela de cripta del anciano T.8.1",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T8_SHOES_CLOTH_MORGANA",
+              "name": "Sandalias de sectario del anciano",
+              "quality": 4
+            },
+            "food": {
+              "id": "T7_MEAL_OMELETTE",
+              "name": "Tortilla de cerdo",
+              "quality": 4
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano",
+              "quality": 4
+            }
+          },
+          "partyRole": "Meter la E en compresor",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "Tu E la tiras cuando el tanque diga 2 en su compresor ",
+          "budget": "No hay barata bro"
+        }
+      },
+      "name": "INVOCADOR OSCURO(CHAdO CALER)"
+    },
+    "5f97eb0a-4245-4247-9bbf-bbb37e827732": {
+      "icon": "Zap",
+      "color": "cyan",
+      "description": "Dps constante",
+      "builds": {
+        "group": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG@4",
+              "name": "Bolsa del anciano T.8.4",
+              "quality": 4
+            },
+            "head": {
+              "id": "T8_HEAD_CLOTH_KEEPER",
+              "name": "Hábito de druida del anciano T.8",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T8_CAPEITEM_FW_LYMHURST@1",
+              "name": "Capa de Lymhurst del anciano T.8.1",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T8_2H_ICECRYSTAL_UNDEAD",
+              "name": "Prisma de hielos perpetuos del anciano T.8",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T8_ARMOR_CLOTH_SET1",
+              "name": "Túnica de erudito del anciano T.8",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T8_2H_ICECRYSTAL_UNDEAD",
+              "name": "Prisma de hielos perpetuos del anciano T.8",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor T.3.2",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T8_SHOES_CLOTH_ROYAL",
+              "name": "Sandalias reales del anciano T.8",
+              "quality": 4
+            },
+            "food": {
+              "id": "T8_MEAL_STEW",
+              "name": "Guiso de ternera T.8",
+              "quality": 4
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano T.8",
+              "quality": 5
+            }
+          },
+          "partyRole": "mana y tirar la e bro",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "Tira la e cuando el compresor atraiga y  spamea habilidades ",
+          "budget": "No hay seccion economica"
+        }
+      },
+      "name": "PRISMA"
+    },
+    "1f545729-a736-4277-8722-e5dcf6476803": {
+      "name": "AVE DEL ÑALVA",
+      "icon": "Sword",
+      "color": "cyan",
+      "description": "Daño masivo",
+      "builds": {
+        "group": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG@4",
+              "name": "Bolsa del anciano T.8.4",
+              "quality": 4
+            },
+            "head": {
+              "id": "T8_HEAD_LEATHER_SET3@1",
+              "name": "Capucha de asesino del anciano T.8.1",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T8_CAPEITEM_FW_LYMHURST@1",
+              "name": "Capa de Lymhurst del anciano T.8.1",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T8_2H_SHAPESHIFTER_AVALON@1",
+              "name": "Invocador de luz del anciano T.8.1",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T8_ARMOR_CLOTH_KEEPER@1",
+              "name": "Túnica de druida del anciano T.8.1",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T8_2H_SHAPESHIFTER_AVALON@1",
+              "name": "Invocador de luz del anciano T.8.1",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor T.3.2",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T8_SHOES_CLOTH_ROYAL@1",
+              "name": "Sandalias reales del anciano T.8.1",
+              "quality": 4
+            },
+            "food": {
+              "id": "T8_MEAL_STEW",
+              "name": "Guiso de ternera T.8",
+              "quality": 4
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano T.8",
+              "quality": 5
+            }
+          },
+          "partyRole": "Daño masivo",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "carga tus cargas de therian y tira la e en el compresor",
+          "budget": "NOHAY"
+        }
       }
+    },
+    "ff1e2313-24c0-4581-93dd-46e9efc966b7": {
+      "icon": "Heart",
+      "color": "emerald",
+      "description": "Cura mucho , juega poco",
+      "builds": {
+        "group": {
+          "equipment": {
+            "bag": {
+              "id": "T8_BAG@4",
+              "name": "Bolsa del anciano",
+              "quality": 4
+            },
+            "head": {
+              "id": "T8_HEAD_PLATE_UNDEAD@1",
+              "name": "Casco de guardatumbas del anciano T.8.1",
+              "quality": 4
+            },
+            "cape": {
+              "id": "T8_CAPEITEM_FW_LYMHURST@1",
+              "name": "Capa de Lymhurst del anciano T.8.1",
+              "quality": 4
+            },
+            "weapon": {
+              "id": "T8_2H_HOLYSTAFF_UNDEAD@1",
+              "name": "Bastón de redención del anciano T.8.1",
+              "quality": 4
+            },
+            "armor": {
+              "id": "T8_ARMOR_PLATE_KEEPER@1",
+              "name": "Armadura de juez del anciano T.8.1",
+              "quality": 4
+            },
+            "offhand": {
+              "id": "T8_OFF_CENSER_AVALON@1",
+              "name": "Incensario celestial del anciano T.8.1",
+              "quality": 4
+            },
+            "potion": {
+              "id": "T3_POTION_MOB_RESET@2",
+              "name": "Poción de calma menor",
+              "quality": 4
+            },
+            "shoes": {
+              "id": "T8_SHOES_LEATHER_MORGANA@1",
+              "name": "Zapatos de acechador del anciano T.8.1",
+              "quality": 4
+            },
+            "food": {
+              "id": "T7_MEAL_OMELETTE",
+              "name": "Tortilla de cerdo",
+              "quality": 4
+            },
+            "mount": {
+              "id": "T8_MOUNT_ARMORED_HORSE",
+              "name": "Caballo blindado del anciano",
+              "quality": 5
+            }
+          },
+          "partyRole": "Curar al tanque y alzar la party",
+          "commonErrors": [
+            "Error 1"
+          ],
+          "timing": "Tirar casco y E en compresor, estate pendiente ",
+          "budget": "No hay xddddddd"
+        }
+      },
+      "name": "HEALER"
     }
   }
 }

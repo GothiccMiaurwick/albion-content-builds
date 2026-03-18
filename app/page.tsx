@@ -58,10 +58,12 @@ export default function Home() {
 
   const handleAddRole = async () => {
     if (!data || !activeCategory) return;
+    const newRoleId = crypto.randomUUID();
     const newRoleName = `Clase Nueva ${Object.keys(data.roles).length + 1}`;
 
     // Create a default role template
     const newRole: RoleConfig = {
+      name: newRoleName,
       icon: "Shield",
       color: "blue",
       description: "Nueva clase añadida. Edítame para configurar los detalles.",
@@ -91,19 +93,19 @@ export default function Home() {
       ...data,
       roles: {
         ...data.roles,
-        [newRoleName]: newRole,
+        [newRoleId]: newRole,
       },
     };
 
     await handleSave(newData);
-    setSelectedRole(newRoleName);
+    setSelectedRole(newRoleId);
     setIsEditorOpen(true);
   };
 
-  const handleDeleteRole = async (roleName: string) => {
+  const handleDeleteRole = async (roleId: string) => {
     if (!data || !activeCategory) return;
     const updatedData = { ...data };
-    const role = updatedData.roles[roleName];
+    const role = updatedData.roles[roleId];
 
     if (role) {
       // Remove build for active category
@@ -111,7 +113,7 @@ export default function Home() {
 
       // If no builds left, remove the role entirely
       if (Object.keys(role.builds).length === 0) {
-        delete updatedData.roles[roleName];
+        delete updatedData.roles[roleId];
       }
     }
 
@@ -131,7 +133,7 @@ export default function Home() {
   // Filter roles to show only those present in the current category
   const rolesInCategory = data
     ? Object.keys(data.roles).filter(
-        (roleName) => data.roles[roleName].builds[activeCategory || ""],
+        (roleId) => data.roles[roleId].builds[activeCategory || ""],
       )
     : [];
 
@@ -190,14 +192,14 @@ export default function Home() {
                   transition={{ duration: 0.4, ease: "easeOut" }}
                   className="w-full space-y-8">
                   <div className="flex flex-wrap justify-center gap-4 md:gap-8 py-6 items-center">
-                    {rolesInCategory.map((roleName) => (
+                    {rolesInCategory.map((roleId) => (
                       <RoleBadge
-                        key={roleName}
-                        name={roleName}
-                        iconName={data.roles[roleName].icon}
-                        color={data.roles[roleName].color}
-                        active={activeRole === roleName}
-                        onClick={() => setSelectedRole(roleName)}
+                        key={roleId}
+                        name={data.roles[roleId].name || roleId}
+                        iconName={data.roles[roleId].icon}
+                        color={data.roles[roleId].color}
+                        active={activeRole === roleId}
+                        onClick={() => setSelectedRole(roleId)}
                       />
                     ))}
 
@@ -223,7 +225,7 @@ export default function Home() {
                   </p>
 
                   <BuildCard
-                    roleName={activeRole}
+                    roleName={roleConfig.name || activeRole}
                     roleColor={roleConfig.color}
                     categoryLabel={currentCategory?.label || ""}
                     buildData={buildData}

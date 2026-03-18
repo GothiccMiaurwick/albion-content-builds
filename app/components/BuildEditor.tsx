@@ -141,14 +141,16 @@ export default function BuildEditor({
   const [editedData, setEditedData] = useState<ContentData>(
     JSON.parse(JSON.stringify(data)),
   );
-  const [roleName, setRoleName] = useState(activeRole);
+  // activeRole is now roleId. roleName state represents the local edits to the name.
+  const role = editedData.roles[activeRole] || { builds: {}, name: "Nueva", color: "emerald", icon: "Shield", description: "" };
+  const [roleName, setRoleName] = useState(role.name || activeRole);
   const [isConfirmingDelete, setIsConfirmingDelete] = useState(false);
   const [selectorConfig, setSelectorConfig] = useState<{
     slot: keyof Equipment;
     title: string;
   } | null>(null);
 
-  const role = editedData.roles[activeRole];
+  // activeRole is now roleId
   const build = role.builds[activeCategory] || {
     equipment: {
       bag: null,
@@ -293,7 +295,7 @@ export default function BuildEditor({
       <div className="bg-slate-900 border border-slate-700 w-full max-w-3xl max-h-[95vh] overflow-y-auto rounded-2xl shadow-2xl flex flex-col custom-scrollbar">
         <div className="p-6 border-b border-slate-800 flex justify-between items-center sticky top-0 bg-slate-900 z-10">
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            Editar Clase: <span className="text-emerald-400">{activeRole}</span>
+            Editar Clase: <span className="text-emerald-400">{role.name || activeRole}</span>
           </h2>
           <button
             onClick={onClose}
@@ -375,6 +377,55 @@ export default function BuildEditor({
                 }
                 className="w-full bg-slate-800 border border-slate-700 rounded px-3 py-2 text-white text-sm h-16 outline-none focus:border-emerald-500/30"
               />
+            </div>
+          </section>
+
+          {/* Duplicar / Copiar Clase */}
+          <section className="space-y-4 pt-6 border-t border-slate-800">
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+              Copiar a otra Sección
+            </h3>
+            <div className="flex flex-col gap-3">
+              <p className="text-slate-400 text-xs text-balance">
+                Duplica esta clase con todo su equipamiento para usarla en otro contenido. ¡Luego podrás modificar la copia sin afectar la original!
+              </p>
+              <div className="flex gap-2">
+                <select 
+                  id={`copy-category`}
+                  className="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-emerald-500/30"
+                >
+                  <option value="">Selecciona la categoría destino...</option>
+                  {editedData.categories.filter(c => c.id !== activeCategory).map(c => (
+                    <option key={c.id} value={c.id}>{c.label}</option>
+                  ))}
+                </select>
+                <button
+                  onClick={() => {
+                    const selectEl = document.getElementById('copy-category') as HTMLSelectElement;
+                    const targetCategory = selectEl?.value;
+                    if (!targetCategory) return;
+                    
+                    const newId = crypto.randomUUID();
+                    let finalData = { ...editedData };
+                    // Apply current name change from state to the copy as well
+                    const roleToCopy = { ...role, name: roleName };
+                    
+                    finalData.roles[newId] = {
+                      ...roleToCopy,
+                      builds: {
+                        [targetCategory]: JSON.parse(JSON.stringify(build))
+                      }
+                    };
+                    
+                    onSave(finalData, activeRole);
+                    alert(`¡Clase duplicada exitosamente a ${editedData.categories.find(c => c.id === targetCategory)?.label}!`);
+                  }}
+                  className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap"
+                >
+                  <Plus className="w-4 h-4 inline-block mr-1" />
+                  Duplicar
+                </button>
+              </div>
             </div>
           </section>
 
@@ -504,19 +555,10 @@ export default function BuildEditor({
         <div className="p-6 border-t border-slate-800 sticky bottom-0 bg-slate-900 z-20">
           <button
             onClick={() => {
-              // Handle role renaming if name changed
               let finalData = { ...editedData };
-              if (roleName !== activeRole) {
-                // If the name already exists in OTHER roles, warn (unless it's just this one)
-                if (finalData.roles[roleName] && roleName !== activeRole) {
-                  alert("Ya existe una clase con ese nombre.");
-                  return;
-                }
-                const roleConfig = finalData.roles[activeRole];
-                delete finalData.roles[activeRole];
-                finalData.roles[roleName] = roleConfig;
-              }
-              onSave(finalData, roleName);
+              // Apply name changes explicitly
+              finalData.roles[activeRole].name = roleName;
+              onSave(finalData, activeRole);
             }}
             className="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-xl shadow-emerald-900/40 transition-all active:scale-[0.98]">
             <Save className="w-5 h-5" /> GUARDAR TODO EL CONTENIDO

@@ -31,6 +31,7 @@ export interface BuildDetail {
 }
 
 export interface RoleConfig {
+  name: string;
   icon: string;
   color: string;
   description: string;
