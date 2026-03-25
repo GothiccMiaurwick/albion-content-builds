@@ -12,6 +12,7 @@ import {
   ChevronDown,
   RotateCcw,
 } from "lucide-react";
+import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ContentData,
@@ -418,7 +419,7 @@ export default function BuildEditor({
                     };
                     
                     onSave(finalData, activeRole);
-                    alert(`¡Clase duplicada exitosamente a ${editedData.categories.find(c => c.id === targetCategory)?.label}!`);
+                    toast.success(`¡Clase duplicada exitosamente a ${editedData.categories.find(c => c.id === targetCategory)?.label}!`);
                   }}
                   className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap"
                 >

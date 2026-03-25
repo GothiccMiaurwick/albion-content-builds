@@ -61,10 +61,7 @@ export default function BuildCard({
     return (
       <div className="relative aspect-square rounded-xl bg-slate-900 border border-slate-800/50 flex flex-col items-center justify-center group shadow-inner">
         {item ? (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="w-full h-full flex flex-col items-center justify-center p-1 relative">
+          <div className="w-full h-full flex flex-col items-center justify-center p-1 relative">
             <motion.div
               whileHover={{ scale: 1.6, zIndex: 50 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
@@ -84,7 +81,7 @@ export default function BuildCard({
                 />
               )}
             </motion.div>
-          </motion.div>
+          </div>
         ) : (
           <span className="text-[9px] font-bold text-slate-700 uppercase tracking-tighter opacity-40">
             {label}

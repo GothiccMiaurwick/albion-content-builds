@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "Albion Content Builds for Albion Online to facilitate group content, created by Miaurwick",
 };
 
+import { Toaster } from "sonner";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${cinzel.variable} ${inter.variable} antialiased`}>
         {children}
+        <Toaster theme="dark" richColors position="bottom-right" />
       </body>
     </html>
   );
