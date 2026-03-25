@@ -26,13 +26,41 @@ interface BuildsClientViewerProps {
 export default function BuildsClientViewer({ initialData }: BuildsClientViewerProps) {
   const [data, setData] = useState<ContentData>(initialData);
   const [activeCategory, setActiveCategory] = useState<string | null>(
-    data.categories.length > 0 ? data.categories[0].id : null
+    initialData.categories.length > 0 ? initialData.categories[0].id : null
   );
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
 
+  // Restore from localStorage on client-side mount
+  import("react").then((React) => {
+    React.useEffect(() => {
+      try {
+        const saved = localStorage.getItem("albion-builds-data");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          setData(parsed);
+          if (parsed.categories?.length > 0 && !activeCategory) {
+            setActiveCategory(parsed.categories[0].id);
+          }
+        }
+      } catch (err) {
+        console.error("Local storage load error", err);
+      }
+    }, []);
+  });
+
   const handleSave = async (newData: ContentData, newRoleId?: string) => {
+    // Optimistic UI Update & LocalStorage Persistence
+    setData(newData);
+    if (newRoleId) setSelectedRole(newRoleId);
+    setIsEditorOpen(false);
+    
+    try {
+      localStorage.setItem("albion-builds-data", JSON.stringify(newData));
+    } catch (e) {
+      console.warn("Could not save to localStorage", e);
+    }
     try {
       const res = await fetch("/api/content", {
         method: "POST",
@@ -40,19 +68,14 @@ export default function BuildsClientViewer({ initialData }: BuildsClientViewerPr
         body: JSON.stringify(newData),
       });
       if (res.ok) {
-        setData(newData);
-        if (newRoleId) {
-          setSelectedRole(newRoleId);
-        }
-        setIsEditorOpen(false);
         toast.success("¡Contenido guardado exitosamente!");
       } else {
         const errData = await res.json().catch(() => ({}));
-        toast.error(`Error al guardar: ${errData.error || "El sistema de archivos en Vercel es de solo lectura."}`);
+        toast.success("Guardado localmente. (Nota: La web está en modo lectura por el servidor en la nube)");
       }
     } catch (err) {
       console.error("Failed to save:", err);
-      toast.error("Error de red al intentar guardar.");
+      toast.warning("Guardado de forma local (Sin conexión con el servidor)");
     }
   };
 
