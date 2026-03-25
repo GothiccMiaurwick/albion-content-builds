@@ -7,6 +7,7 @@ const ContentSecurityPolicy = `
   img-src 'self' blob: data: render.albiononline.com;
   font-src 'self' fonts.gstatic.com;
   connect-src 'self' https://vercel.live wss://ws-us3.pusher.com;
+  frame-src 'self' https://vercel.live;
   object-src 'none';
   base-uri 'self';
   form-action 'self';
