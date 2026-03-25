@@ -29,6 +29,16 @@ const colorMap: Record<string, { bg: string; border: string; text: string }> = {
     border: "border-orange-500/50",
     text: "text-orange-400",
   },
+  cyan: {
+    bg: "bg-cyan-950/30",
+    border: "border-cyan-500/50",
+    text: "text-cyan-400",
+  },
+  purple: {
+    bg: "bg-purple-950/30",
+    border: "border-purple-500/50",
+    text: "text-purple-400",
+  },
 };
 
 export default function RoleBadge({

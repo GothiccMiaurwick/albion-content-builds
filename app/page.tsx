@@ -6,9 +6,7 @@ import Footer from "./components/Footer";
 import BuildsClientViewer from "./components/BuildsClientViewer";
 import { ContentData } from "./types/content";
 
-// Force dynamic to ensure data is read fresh on request in dev
-export const dynamic = "force-dynamic";
-
+// Page is statically generated at build time since data is local JSON
 export default function Home() {
   return (
     <CelestialBackground>

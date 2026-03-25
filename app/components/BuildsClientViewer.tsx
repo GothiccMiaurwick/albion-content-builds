@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Settings, Plus } from "lucide-react";
+import { toast } from "sonner";
 import CategoryTabs from "./CategoryTabs";
 import RoleBadge from "./RoleBadge";
 import BuildCard from "./BuildCard";
@@ -44,9 +45,14 @@ export default function BuildsClientViewer({ initialData }: BuildsClientViewerPr
           setSelectedRole(newRoleId);
         }
         setIsEditorOpen(false);
+        toast.success("¡Contenido guardado exitosamente!");
+      } else {
+        const errData = await res.json().catch(() => ({}));
+        toast.error(`Error al guardar: ${errData.error || "El sistema de archivos en Vercel es de solo lectura."}`);
       }
     } catch (err) {
       console.error("Failed to save:", err);
+      toast.error("Error de red al intentar guardar.");
     }
   };
 
