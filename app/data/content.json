@@ -11,6 +11,10 @@
     {
       "id": "ganking",
       "label": "Ganking"
+    },
+    {
+      "id": "static-diving",
+      "label": "Static Diving"
     }
   ],
   "roles": {

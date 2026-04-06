@@ -38,6 +38,16 @@ export default function BuildsClientViewer({ initialData }: BuildsClientViewerPr
       const saved = localStorage.getItem("albion-builds-data");
       if (saved) {
         const parsed = JSON.parse(saved);
+        
+        // Merge in new categories from initialData that aren't in localStorage yet
+        const currentCats = parsed.categories || [];
+        const missingCats = initialData.categories.filter(
+          (c) => !currentCats.find((ec: any) => ec.id === c.id)
+        );
+        if (missingCats.length > 0) {
+          parsed.categories = [...currentCats, ...missingCats];
+        }
+
         setData(parsed);
         if (parsed.categories?.length > 0 && !activeCategory) {
           setActiveCategory(parsed.categories[0].id);
