@@ -72,6 +72,7 @@ export default function BuildCard({
                 width={128}
                 height={128}
                 priority={priority}
+                unoptimized={true}
                 className="w-full h-full object-contain"
               />
               {item.quality && item.quality > 1 && (

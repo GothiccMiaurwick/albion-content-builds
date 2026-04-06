@@ -251,6 +251,7 @@ export default function BuildEditor({
                   alt={item.name}
                   width={128}
                   height={128}
+                  unoptimized={true}
                   className="w-full h-full object-contain"
                 />
               </motion.div>

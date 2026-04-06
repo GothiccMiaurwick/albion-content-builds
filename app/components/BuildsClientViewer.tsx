@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Settings, Plus } from "lucide-react";
 import { toast } from "sonner";
@@ -33,22 +33,20 @@ export default function BuildsClientViewer({ initialData }: BuildsClientViewerPr
   const [isEditorOpen, setIsEditorOpen] = useState(false);
 
   // Restore from localStorage on client-side mount
-  import("react").then((React) => {
-    React.useEffect(() => {
-      try {
-        const saved = localStorage.getItem("albion-builds-data");
-        if (saved) {
-          const parsed = JSON.parse(saved);
-          setData(parsed);
-          if (parsed.categories?.length > 0 && !activeCategory) {
-            setActiveCategory(parsed.categories[0].id);
-          }
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("albion-builds-data");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setData(parsed);
+        if (parsed.categories?.length > 0 && !activeCategory) {
+          setActiveCategory(parsed.categories[0].id);
         }
-      } catch (err) {
-        console.error("Local storage load error", err);
       }
-    }, []);
-  });
+    } catch (err) {
+      console.error("Local storage load error", err);
+    }
+  }, []);
 
   const handleSave = async (newData: ContentData, newRoleId?: string) => {
     // Optimistic UI Update & LocalStorage Persistence

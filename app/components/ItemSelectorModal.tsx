@@ -116,6 +116,7 @@ export default function ItemSelectorModal({
                       alt={item.name}
                       width={64}
                       height={64}
+                      unoptimized={true}
                       className="w-full h-full object-contain"
                     />
                   </motion.div>
